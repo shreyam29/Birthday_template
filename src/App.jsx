@@ -2,8 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 
+// ══════════════════════════════════════════════════════════════════════════════
+// 📸  CUSTOMIZATION SECTION: PHOTOS & TEXT
+// Change the URLs and the notes here. Keep 8 photos exactly as requested.
+// ══════════════════════════════════════════════════════════════════════════════
 const photos = [
-  // Photos 1-6 (with notes)
+  // ✏️  PHOTOS 1 to 6: These wait for a tap to continue.
   { id: 1, url: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'Remember this day? Pure magic.' },
   { id: 2, url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'All the late night conversations...' },
   { id: 3, url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'So many laughs.' },
@@ -11,14 +15,13 @@ const photos = [
   { id: 5, url: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'An unforgettable adventure.' },
   { id: 6, url: 'https://images.unsplash.com/photo-1464375117522-1314d6c469e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'Can\'t wait for more moments like this.' },
   
-  // Photos 7-10 (no notes, auto-advance)
+  // ✏️  PHOTOS 7 & 8: No notes, these automatically advance after 3 seconds.
   { id: 7, url: 'https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: '' },
   { id: 8, url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: '' },
-  { id: 9, url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: '' },
-  { id: 10, url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: '' },
 ];
+// ══════════════════════════════════════════════════════════════════════════════
 
-// ─── GIFT BOX & INITIAL MESSAGE ───────────────────────────────────────────────
+// ─── GIFT BOX SCREEN ─────────────────────────────────────────────────────────
 function GiftBox({ onOpen }) {
   const [phase, setPhase] = useState('idle');
 
@@ -59,41 +62,27 @@ function GiftBox({ onOpen }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Ambient Glow */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[600px] h-[600px] bg-[#E50914] opacity-[0.06] rounded-full blur-[140px]" />
           </div>
 
-          {/* Intro Text placed ABOVE the box */}
-          <div className="absolute top-12 md:top-24 px-6 md:px-12 max-w-4xl text-center z-20 pointer-events-none flex flex-col items-center">
-            <motion.h1 
-              className="text-5xl md:text-7xl mb-8 font-bold leading-tight"
-              style={{ fontFamily: "'Dancing Script', cursive" }}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: phase === 'idle' ? 1 : 0, y: 0 }}
-              transition={{ delay: 0.3, duration: 1.2 }}
-            >
-              <span className="bg-gradient-to-r from-[#ff758c] via-[#ff7eb3] to-[#FFD700] bg-clip-text text-transparent">
-                Happy Birthday Koshali 🐰✨
-              </span>
-            </motion.h1>
-            <motion.p 
-              className="text-lg md:text-2xl text-gray-200 leading-relaxed font-light drop-shadow-md"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: phase === 'idle' ? 1 : 0 }}
-              transition={{ delay: 1, duration: 1.5 }}
-            >
-              I hope you had the most amazing celebration today. Since we've shared so many great times together, I wanted to build something special just for you to make sure your day ends perfectly. Here is a little gift from my side... tap the box, turn up your volume, and enjoy the trip down memory lane. 🌻
-            </motion.p>
-          </div>
+          {/* Simple tap instruction on the front */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: phase === 'idle' ? 1 : 0, y: 0 }}
+            transition={{ delay: 0.4, duration: 1 }}
+            className="mb-12 text-xl md:text-3xl tracking-[0.2em] text-gray-400 italic font-light text-center pointer-events-none"
+            style={{ fontFamily: "'Outfit', sans-serif" }}
+          >
+            Click or tap to open ✨
+          </motion.p>
 
           {/* The Gift Box */}
           <motion.div
             onClick={handleClick}
             variants={boxVariants}
             animate={phase === 'idle' ? 'idle' : phase === 'shake' ? 'shake' : 'burst'}
-            className="cursor-pointer relative z-10 select-none mt-48 md:mt-64"
+            className="cursor-pointer relative z-10 select-none"
             style={{ touchAction: 'manipulation' }}
           >
             <div className="relative w-48 h-48 md:w-56 md:h-56 select-none">
@@ -109,20 +98,59 @@ function GiftBox({ onOpen }) {
               <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-white rounded-full opacity-40 z-30 animate-pulse" style={{ animationDelay: '0.5s' }} />
             </div>
           </motion.div>
-
-          {/* Hint text at very bottom */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: phase === 'idle' ? 0.4 : 0 }}
-            transition={{ delay: 2, duration: 1.5 }}
-            className="absolute bottom-10 text-sm tracking-widest text-gray-500 uppercase pointer-events-none"
-            style={{ fontFamily: "'Outfit', sans-serif" }}
-          >
-            ( tap the box to open )
-          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>
+  );
+}
+
+// ─── WELCOME SCREEN (AFTER BOX BURSTS) ────────────────────────────────────────
+function WelcomeScreen({ onNext }) {
+  return (
+    <motion.div
+      key="welcome"
+      className="fixed inset-0 flex flex-col items-center justify-center bg-[#111111] z-40 p-6 md:p-12 cursor-pointer overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+      onClick={onNext}
+    >
+      <div className="px-6 md:px-12 max-w-4xl text-center flex flex-col items-center relative z-10">
+        <motion.h1 
+          className="text-5xl md:text-7xl mb-8 font-bold leading-tight"
+          style={{ fontFamily: "'Dancing Script', cursive" }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 1.2 }}
+        >
+          {/* ✏️ CUSTOMIZE TEXT BELOW */}
+          <span className="bg-gradient-to-r from-[#ff758c] via-[#ff7eb3] to-[#FFD700] bg-clip-text text-transparent">
+            Happy Birthday Koshali 🐰✨
+          </span>
+        </motion.h1>
+        <motion.p 
+          className="text-lg md:text-2xl text-gray-200 leading-relaxed font-light drop-shadow-md"
+          style={{ fontFamily: "'Outfit', sans-serif" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1.5 }}
+        >
+          {/* ✏️ CUSTOMIZE TEXT BELOW */}
+          I hope you had the most amazing celebration today. Since we've shared so many great times together, I wanted to build something special just for you to make sure your day ends perfectly. Here is a little gift from my side... tap the box, turn up your volume, and enjoy the trip down memory lane. 🌻
+        </motion.p>
+        
+        <motion.p
+          className="mt-16 text-sm md:text-base text-gray-500 tracking-widest uppercase animate-pulse"
+          style={{ fontFamily: "'Outfit', sans-serif" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1 }}
+        >
+          Tap anywhere to begin
+        </motion.p>
+      </div>
+    </motion.div>
   );
 }
 
@@ -152,7 +180,6 @@ function Slideshow({ photo, onNext }) {
         onNext();
       }}
     >
-      {/* Background Blur Effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <img 
           src={photo.url} 
@@ -162,7 +189,6 @@ function Slideshow({ photo, onNext }) {
         <div className="absolute inset-0 bg-black/50" />
       </div>
       
-      {/* Polaroid Photo Container */}
       <motion.div 
         className="relative z-10 bg-white p-4 pb-16 md:p-5 md:pb-20 shadow-2xl rounded-sm flex flex-col items-center justify-center max-w-[85vw] max-h-[70vh]"
         initial={{ y: 50, opacity: 0, rotate: -3 }}
@@ -178,7 +204,6 @@ function Slideshow({ photo, onNext }) {
         </div>
       </motion.div>
       
-      {/* Note overlay at the bottom */}
       {photo.note && (
         <div className="absolute bottom-6 left-0 right-0 px-6 flex flex-col items-center z-20">
           <div className="max-w-2xl w-full text-center backdrop-blur-md bg-black/40 p-4 md:p-6 rounded-2xl border border-white/10 shadow-xl">
@@ -192,7 +217,6 @@ function Slideshow({ photo, onNext }) {
         </div>
       )}
       
-      {/* Auto-advance progress indicator */}
       {isAutoAdvance && (
         <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex space-x-2 z-20">
           <motion.div 
@@ -223,6 +247,7 @@ function FinalScreen() {
         </h2>
         
         <div className="space-y-8 text-xl md:text-3xl font-light text-gray-300 leading-relaxed">
+          {/* ✏️ CUSTOMIZE FINAL MESSAGE HERE */}
           <p>
             You know, I have to admit something... your music library back in 12th grade was absolutely amazing.
           </p>
@@ -232,9 +257,7 @@ function FinalScreen() {
           
           <div className="w-16 h-px bg-[#E50914] mx-auto my-12" />
 
-          {/* ──────────────────────────────────────────────────────────────────
-              ✏️  YOUR FINAL MESSAGE GOES BELOW THIS LINE
-          ─────────────────────────────────────────────────────────────────── */}
+          {/* ✏️ CUSTOMIZE FINAL CONCLUSION HERE */}
           <p>
             [Your final message goes here. Replace this with any concluding thoughts you have.]
           </p>
@@ -249,7 +272,7 @@ function FinalScreen() {
 
 // ─── ROOT APP ─────────────────────────────────────────────────────────────────
 export default function App() {
-  const [stage, setStage] = useState('box'); // 'box' | 'slideshow' | 'end'
+  const [stage, setStage] = useState('box'); // 'box' | 'welcome' | 'slideshow' | 'end'
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const audio1Ref = useRef(null);
@@ -259,11 +282,13 @@ export default function App() {
   useEffect(() => {
     let activeTrack = 0; // 0 = none, 1 = track1, 2 = track2
 
-    if (stage === 'slideshow') {
-      if (currentSlide < 9) activeTrack = 1;      // Photos 1-9 (indices 0 to 8)
-      else activeTrack = 2;                       // Photo 10 (index 9)
+    if (stage === 'welcome') {
+      activeTrack = 1;
+    } else if (stage === 'slideshow') {
+      if (currentSlide < 6) activeTrack = 1;      // Photos 1-6 (indices 0 to 5) -> track 1
+      else activeTrack = 2;                       // Photos 7-8 (indices 6 to 7) -> track 2
     } else if (stage === 'end') {
-      activeTrack = 2;                            // Final Screen
+      activeTrack = 2;                            // Final Screen -> track 2
     }
 
     const tracks = [null, audio1Ref.current, audio2Ref.current];
@@ -305,8 +330,8 @@ export default function App() {
     if (audio1Ref.current) audio1Ref.current.play().then(() => audio1Ref.current.pause()).catch(()=>{});
     if (audio2Ref.current) audio2Ref.current.play().then(() => audio2Ref.current.pause()).catch(()=>{});
 
-    // Go directly to slideshow since the welcome message is now on the box screen
-    setStage('slideshow');
+    // Go to welcome screen to show the newly formatted beautiful message!
+    setStage('welcome');
   };
 
   const handleNextSlide = () => {
@@ -321,10 +346,10 @@ export default function App() {
     <div className="bg-[#111111] text-white min-h-screen font-sans overflow-x-hidden">
       {/*
         ════════════════════════════════════════════════════════════════════════
-        🎵  AUDIO SETUP
+        🎵  CUSTOMIZATION SECTION: AUDIO SETUP
         Place 2 mp3 files in your `public/` folder named:
-        - music1.mp3  (Plays at start and photos 1-9)
-        - music2.mp3  (Plays at photo 10 and final screen)
+        - music1.mp3  (Plays at start and photos 1 to 6)
+        - music2.mp3  (Plays at photo 7, 8 and final screen)
         ════════════════════════════════════════════════════════════════════════
       */}
       <audio ref={audio1Ref} src="/music1.mp3" loop preload="auto" />
@@ -333,6 +358,10 @@ export default function App() {
       <AnimatePresence mode="wait">
         {stage === 'box' && (
           <GiftBox key="box" onOpen={handleOpenBox} />
+        )}
+
+        {stage === 'welcome' && (
+          <WelcomeScreen key="welcome" onNext={() => setStage('slideshow')} />
         )}
 
         {stage === 'slideshow' && (
