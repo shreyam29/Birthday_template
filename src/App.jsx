@@ -8,16 +8,16 @@ import confetti from 'canvas-confetti';
 // ══════════════════════════════════════════════════════════════════════════════
 const photos = [
   // ✏️  PHOTOS 1 to 6: These wait for a tap to continue.
-  { id: 1, url: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'Remember this day? Pure magic.' },
-  { id: 2, url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'All the late night conversations...' },
-  { id: 3, url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'So many laughs.' },
-  { id: 4, url: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'We laughed until we cried here.' },
-  { id: 5, url: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'An unforgettable adventure.' },
-  { id: 6, url: 'https://images.unsplash.com/photo-1464375117522-1314d6c469e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: 'Can\'t wait for more moments like this.' },
+  { id: 1, url: '/1.jpeg', note: 'Remember this day? It was pure magic, I still have it embarked in my memory' },
+  { id: 2, url: '/2.jpeg', note: 'All those jumpscares in Stree-2 made me realise that you do also get scared ' },
+  { id: 3, url: '/3.jpeg', note: 'Well I was mad at you at beginning when we met here, but you do know how to make me smile. And yeah you look abosulely ethereal in traditional tho...' },
+  { id: 4, url: '/9.jpeg', note: 'Sunflower a day keep\'s  sadness away.' },
+  { id: 5, url: '/6.jpeg', note: 'Well this was an eveining to remember. You still had a sore leg, doing assignments, I just hoped that you would smile and be happy with a flower, well...' },
+  { id: 6, url: '/8.jpeg', note: 'One of the most beautiful moments that is etched in my memory, Hopefully we will find the brightest stars in melody under the sky, One day...' },
   
   // ✏️  PHOTOS 7 & 8: No notes, these automatically advance after 3 seconds.
-  { id: 7, url: 'https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: '' },
-  { id: 8, url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', note: '' },
+  { id: 7, url: '/4.jpeg', note: '' },
+  { id: 8, url: '/7.jpeg', note: '' },
 ];
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -66,34 +66,12 @@ function GiftBox({ onOpen }) {
             <div className="w-[600px] h-[600px] bg-[#E50914] opacity-[0.06] rounded-full blur-[140px]" />
           </div>
 
-          {/* Elegant Intro Headings */}
-          <div className="absolute top-12 md:top-24 w-full text-center z-20 pointer-events-none flex flex-col items-center px-4">
-            <motion.h1 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: phase === 'idle' ? 1 : 0, y: 0 }}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="text-4xl md:text-6xl text-[#FFD700] mb-4 tracking-wider drop-shadow-lg"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Playlists & Memories
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: phase === 'idle' ? 1 : 0 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="text-xl md:text-3xl text-gray-300 italic"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              To the Brightest Sunflower - a little note.
-            </motion.p>
-          </div>
-
           {/* Simple tap instruction on the front */}
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: phase === 'idle' ? 1 : 0, y: 0 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            className="mb-12 text-lg md:text-2xl tracking-[0.2em] text-gray-400 italic font-light text-center pointer-events-none mt-40 md:mt-0"
+            transition={{ delay: 0.4, duration: 1 }}
+            className="mb-12 text-lg md:text-2xl tracking-[0.2em] text-gray-400 italic font-light text-center pointer-events-none"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             Click or tap to open ✨
@@ -270,17 +248,30 @@ function FinalScreen1({ onNext }) {
       onClick={onNext}
     >
       <div className="max-w-3xl text-center space-y-12 my-auto" style={{ fontFamily: "'Outfit', sans-serif" }}>
-        <h2 className="text-4xl md:text-6xl font-light text-white leading-tight">
-          The Perfect Soundtrack
-        </h2>
+        <div className="flex flex-col items-center">
+          <h2 
+            className="text-4xl md:text-6xl text-[#FFD700] mb-4 tracking-wider drop-shadow-lg"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Playlists & Memories
+          </h2>
+          <p
+            className="text-xl md:text-3xl text-gray-300 italic"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            To the Brightest Sunflower - a little note.
+          </p>
+        </div>
         
         <div className="space-y-8 text-xl md:text-3xl font-light text-gray-300 leading-relaxed">
           {/* ✏️ CUSTOMIZE TEXT HERE */}
           <p>
-            You know, I have to admit something... your music library back in 12th grade was absolutely amazing.
+             You know, I have to admit something... your music library back in 12th grade was absolutely amazing, I remember us sharing our favorite songs.
+             Do you remember the songs you shared me in class 11 ?
           </p>
           <p>
-            I actually still listen to those same songs today. Every time they play, it brings back all the best memories.
+              Yep!! Happier and Bad blood running in the background are one of those songs you shared with me, You did had a great taste in music back then.
+              I actually still listen to those same songs today. Every time they play, it brings back all the best memories.
           </p>
         </div>
 
@@ -312,15 +303,26 @@ function FinalScreen2() {
           
           {/* ✏️ CUSTOMIZE FINAL CONCLUSION HERE */}
           <p>
-            [Your final message goes here. Replace this with any concluding thoughts you have.]
+              I know I mentioned this earlier, but it’s worth saying again, whenever I see the radiance of a sunflower 🌻, it instantly reminds me of your vibrant smile.
+
+            Looking back at our Nalanda days, it’s amazing to see how much we've both grown. Your bravery and sheer drive have always inspired me to push further. As we both grind toward our own goals over these next couple of years, I am really looking forward to seeing our connection grow even stronger.
+
+            Your childish heart and genuine kindness never cease to amaze me, I love to see that we have reached a place where we truly understand and just look out for one another. Congratulations on your victory on securing the job position as well, you had worked very hard for this and you deserve the victory which comes as present for you this birthday.
+            
+            I'm excited for whatever the next chapter holds for us, and I hope we are in it together under the glimmering stars. ✨
           </p>
 
           <div className="w-16 h-px bg-[#E50914] mx-auto my-12 opacity-50" />
 
           {/* FINAL BIRTHDAY WISH */}
-          <p className="pt-4 text-white font-medium" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '3.5rem', lineHeight: '1.2' }}>
-            Happy Birthday once again, Tofu.
-          </p>
+          <div className="flex flex-col items-center">
+            <p className="pt-4 text-white font-medium" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '3.5rem', lineHeight: '1.2' }}>
+              Happy Birthday once again, Koshali.
+            </p>
+            <p className="pt-6 text-gray-300" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '2.5rem' }}>
+              — Chandra
+            </p>
+          </div>
         </div>
       </div>
     </motion.div>
