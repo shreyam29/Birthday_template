@@ -317,7 +317,7 @@ function FinalScreen2() {
           {/* FINAL BIRTHDAY WISH */}
           <div className="flex flex-col items-center">
             <p className="pt-4 text-white font-medium" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '3.5rem', lineHeight: '1.2' }}>
-              Happy Birthday once again, Koshali.
+              Happy Birthday once again, Tofu .
             </p>
             <p className="pt-6 text-gray-300" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '2.5rem' }}>
               — Chandra
