@@ -1,17 +1,51 @@
-# React + Vite
+# 🎁 Interactive Birthday Website Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautifully animated, cinematic, single-page web experience designed to be a personalized digital birthday gift or appreciation timeline for a friend or loved one. 
 
-Currently, two official plugins are available:
+## ✨ Features
+* **Cinematic Landing:** A dark, immersive theme featuring a beautifully styled, floating gift box.
+* **Interactive Reveal:** Tap to open the gift box, triggering a smooth "party popper" confetti burst and seamlessly starting the background audio.
+* **Story-Driven Timeline:** A smooth, scrollable timeline of photos paired with dedicated text containers for personalized memories and notes.
+* **Responsive Design:** Looks gorgeous and scales perfectly on both desktop and mobile devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack
+* **React:** UI Framework
+* **Vite:** Blazing fast build tool
+* **Framer Motion:** For smooth fades, reveals, and timeline transitions
+* **Canvas Confetti:** For the interactive party popper effect
 
-## React Compiler
+## 🚀 How to Customize and Run Locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**1. Clone the repository:**
+```bash
+git clone [https://github.com/YOUR-USERNAME/interactive-birthday-template.git](https://github.com/YOUR-USERNAME/interactive-birthday-template.git)
+cd interactive-birthday-template
 
-## Expanding the ESLint configuration
+**2. Install dependencies:**
+run :- npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# BirthdayWesbite
+**3. Add Your Personal Assets:**
+Drop your photos into the public/ folder and name them 1.jpg, 2.jpg, etc.
+
+Drop your background music into the public/ folder and name it music1.mp3 (and music2.mp3 for the finale, if you have two tracks).
+
+**4. Add Your Personal notes:**
+Open src/App.jsx in your code editor.
+
+Look for the  CUSTOMIZATION SECTION comments near the top.
+
+Replace the placeholder text inside the code with your own personal notes, memories, and signatures.
+
+**5. Start the local server:**
+To start the server run :-  npm run dev
+
+
+Deployment
+This project is fully static and optimized for zero-config deployments.
+
+Vercel: Simply import the GitHub repository into Vercel, leave all default Vite build settings as they are, and click "Deploy."
+
+Netlify: Drag and drop the built dist folder into Netlify Drop, or link your GitHub repo for continuous deployment.
+
+License
+This project is open-source and available under the MIT License.

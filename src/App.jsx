@@ -8,16 +8,16 @@ import confetti from 'canvas-confetti';
 // ══════════════════════════════════════════════════════════════════════════════
 const photos = [
   // ✏️  PHOTOS 1 to 6: These wait for a tap to continue.
-  { id: 1, url: '/1.jpeg', note: 'Remember this day? It was pure magic, I still have it embarked in my memory' },
-  { id: 2, url: '/2.jpeg', note: 'All those jumpscares in Stree-2 made me realise that you do also get scared ' },
-  { id: 3, url: '/3.jpeg', note: 'Well I was mad at you at beginning when we met here, but you do know how to make me smile. And yeah you look abosulely ethereal in traditional tho...' },
-  { id: 4, url: '/9.jpeg', note: 'Sunflower a day keep\'s  sadness away.' },
-  { id: 5, url: '/6.jpeg', note: 'Well this was an eveining to remember. You still had a sore leg, doing assignments, I just hoped that you would smile and be happy with a flower, well...' },
-  { id: 6, url: '/8.jpeg', note: 'One of the most beautiful moments that is etched in my memory, Hopefully we will find the brightest stars in melody under the sky, One day...' },
+  { id: 1, url: 'Insert URL for Photo 1', note: 'Sentence 1' },
+  { id: 2, url: 'Insert URL for Photo 2', note: 'Sentence 2' },
+  { id: 3, url: 'Insert URL for Photo 3', note: 'Sentence 3' },
+  { id: 4, url: 'Insert URL for Photo 4', note: 'Sentence 4' },
+  { id: 5, url: 'Insert URL for Photo 5', note: 'Sentence 5' },
+  { id: 6, url: 'Insert URL for Photo 6', note: 'Sentence 6' },
   
   // ✏️  PHOTOS 7 & 8: No notes, these automatically advance after 3 seconds.
-  { id: 7, url: '/4.jpeg', note: '' },
-  { id: 8, url: '/7.jpeg', note: '' },
+  { id: 7, url: 'Insert URL for Photo 7', note: '' },
+  { id: 8, url: 'Insert URL for Photo 8', note: '' },
 ];
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -126,7 +126,7 @@ function WelcomeScreen({ onNext }) {
         >
           {/* ✏️ CUSTOMIZE TEXT BELOW */}
           <span className="bg-gradient-to-r from-[#ff758c] via-[#ff7eb3] to-[#FFD700] bg-clip-text text-transparent">
-            Happy Birthday Koshali 🐰✨
+            INSERT NAME 
           </span>
         </motion.h1>
         <motion.p 
@@ -137,7 +137,7 @@ function WelcomeScreen({ onNext }) {
           transition={{ delay: 1, duration: 1.5 }}
         >
           {/* ✏️ CUSTOMIZE TEXT BELOW */}
-          I hope you had the most amazing celebration today. Since we've shared so many great times together, I wanted to build something special just for you to make sure your day ends perfectly. Here is a little gift from my side... tap the box, turn up your volume, and enjoy the trip down memory lane. 🌻
+          WRITE THE TEXT HERE.
         </motion.p>
         
         <motion.p
@@ -259,19 +259,17 @@ function FinalScreen1({ onNext }) {
             className="text-xl md:text-3xl text-gray-300 italic"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            To the Brightest Sunflower - a little note.
+            Insert text .
           </p>
         </div>
         
         <div className="space-y-8 text-xl md:text-3xl font-light text-gray-300 leading-relaxed">
           {/* ✏️ CUSTOMIZE TEXT HERE */}
           <p>
-             You know, I have to admit something... your music library back in 12th grade was absolutely amazing, I remember us sharing our favorite songs.
-             Do you remember the songs you shared me in class 11 ?
+             Paragraph 1.
           </p>
           <p>
-              Yep!! Happier and Bad blood running in the background are one of those songs you shared with me, You did had a great taste in music back then.
-              I actually still listen to those same songs today. Every time they play, it brings back all the best memories.
+              Paragraph 2.
           </p>
         </div>
 
@@ -303,13 +301,7 @@ function FinalScreen2() {
           
           {/* ✏️ CUSTOMIZE FINAL CONCLUSION HERE */}
           <p>
-              I know I mentioned this earlier, but it’s worth saying again, whenever I see the radiance of a sunflower 🌻, it instantly reminds me of your vibrant smile.
-
-            Looking back at our Nalanda days, it’s amazing to see how much we've both grown. Your bravery and sheer drive have always inspired me to push further. As we both grind toward our own goals over these next couple of years, I am really looking forward to seeing our connection grow even stronger.
-
-            Your childish heart and genuine kindness never cease to amaze me, I love to see that we have reached a place where we truly understand and just look out for one another. Congratulations on your victory on securing the job position as well, you had worked very hard for this and you deserve the victory which comes as present for you this birthday.
-            
-            I'm excited for whatever the next chapter holds for us, and I hope we are in it together under the glimmering stars. ✨
+              Final concluding paragraph. 
           </p>
 
           <div className="w-16 h-px bg-[#E50914] mx-auto my-12 opacity-50" />
@@ -317,10 +309,10 @@ function FinalScreen2() {
           {/* FINAL BIRTHDAY WISH */}
           <div className="flex flex-col items-center">
             <p className="pt-4 text-white font-medium" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '3.5rem', lineHeight: '1.2' }}>
-              Happy Birthday once again, Tofu .
+              Happy Birthday once again, [Name] .
             </p>
             <p className="pt-6 text-gray-300" style={{ fontFamily: "'Dancing Script', cursive", fontSize: '2.5rem' }}>
-              — Chandra
+              — [Your Name]
             </p>
           </div>
         </div>
