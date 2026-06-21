@@ -18,7 +18,7 @@ A beautifully animated, cinematic, single-page web experience designed to be a p
 
 **1. Clone the repository:**
 ```bash
-git clone [https://github.com/YOUR-USERNAME/interactive-birthday-template.git](https://github.com/YOUR-USERNAME/interactive-birthday-template.git)
+git clone [https://github.com/shreyam29/interactive-birthday-template.git](https://github.com/shreyam29/interactive-birthday-template.git)
 cd interactive-birthday-template
 
 **2. Install dependencies:**
